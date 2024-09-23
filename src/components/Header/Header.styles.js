@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const StyledHeader = styled.header`
   background-color: ${({ theme }) => theme.color.primary};
   padding: 1rem;
