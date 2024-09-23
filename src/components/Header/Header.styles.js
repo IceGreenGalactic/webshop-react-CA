@@ -10,8 +10,8 @@ export const StyledHeader = styled.header`
 
 export const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: baseline;
   margin: 0 auto;
   width: 100%;
 `;

@@ -8,6 +8,7 @@ const theme = {
         sale: 'red',
         background:'var(--color-background)',
         cardBackground:'var(--color-cards-background)',
+        btnHover: 'var(--color-btnHover-background)',
     },
    
 };

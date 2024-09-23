@@ -13,7 +13,11 @@ const Header = () => {
         <NavLinks>
           <NavLink><a href="/">Home</a></NavLink>
           <NavLink><a href="/contact">Contact</a></NavLink>
-          <NavLink><a href="/cart">🛒 (0)</a></NavLink>
+          <NavLink>
+            <a href="/cart">
+              <i className="fa-solid fa-cart-shopping"></i> (0)
+            </a>
+          </NavLink>
         </NavLinks>
       </Nav>
     </StyledHeader>
