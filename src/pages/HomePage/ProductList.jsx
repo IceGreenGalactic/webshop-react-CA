@@ -13,6 +13,7 @@ import {
 } from "./ProductList.styles";
 import { fetchAllProducts } from "../../api/apiCalls";
 import { Link } from "react-router-dom";
+import Star from "../../components/star";
 
 
 const ProductList = () => {
@@ -88,6 +89,15 @@ const ProductList = () => {
                 <Description className="col-10 mb-4 m-auto">
                   {product.description}
                 </Description>
+                <div className="my-3">
+                  <strong>
+                    Rating: 
+                    {Array.from({ length: 5 }, (_, index) => (
+                      <Star key={index} filled={index < product.rating} />
+                    ))}
+                    {` ${product.rating} / 5`}
+                  </strong>
+                </div>
                 <PriceContainer>
                   {discountPercentage > 0 ? (
                     <>
