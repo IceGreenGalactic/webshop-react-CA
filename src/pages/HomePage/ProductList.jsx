@@ -12,6 +12,8 @@ import {
   RegularPrice,
 } from "./ProductList.styles";
 import { fetchAllProducts } from "../../api/apiCalls";
+import { Link } from "react-router-dom";
+import Star from "../../components/star";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -76,7 +78,11 @@ const ProductList = () => {
               className="col-12 col-sm-6 col-xl-4 mb-3 p-0 m-auto"
               key={product.id}
             >
-              <ProductCard className="card text-center m-auto col-11 ">
+              <ProductCard
+                as={Link}
+                to={`/SingleProductPage/${product.id}`}
+                className="card text-center m-auto text-decoration-none col-11"
+              >
                 <ProductImg
                   src={product.image.url}
                   alt={product.image.alt}
@@ -86,6 +92,15 @@ const ProductList = () => {
                 <Description className="col-10 mb-4 m-auto">
                   {product.description}
                 </Description>
+                <div className="my-3">
+                  <strong>
+                    Rating:
+                    {Array.from({ length: 5 }, (_, index) => (
+                      <Star key={index} filled={index < product.rating} />
+                    ))}
+                    {` ${product.rating} / 5`}
+                  </strong>
+                </div>
                 <PriceContainer>
                   {discountPercentage > 0 ? (
                     <>
