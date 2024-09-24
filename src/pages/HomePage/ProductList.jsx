@@ -12,6 +12,8 @@ import {
   RegularPrice,
 } from "./ProductList.styles";
 import { fetchAllProducts } from "../../api/apiCalls";
+import { Link } from "react-router-dom";
+
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -103,7 +105,9 @@ const ProductList = () => {
                     <Price>Price: ${product.price.toFixed(2)}</Price>
                   )}
                 </PriceContainer>
-                <Button className="m-4">View Product</Button>
+                <Link to={`/SingleProductPage/${product.id}`}>
+  <Button className="m-4">View Product</Button>
+</Link>
               </ProductCard>
             </div>
           );
