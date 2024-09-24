@@ -11,9 +11,11 @@ height: 100%;
 }
 body{
 background: #F0F0F0;
-font-family: 'Lato', sans-serif;
+font-family: 'Lato', Arial, sans-serif;
 }
-
+h1{
+font-family: 'Playwrite DE Grund', Arial, sans-serif;
+}
 `;
 
 export default GlobalStyle

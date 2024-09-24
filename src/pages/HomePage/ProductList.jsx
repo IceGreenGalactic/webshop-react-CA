@@ -1,66 +1,113 @@
-import React, { useState } from 'react';
-import productImg from '../../assets/images/testImg.jpg';
-import { Button } from '../../App.styles';
-import { ProductCard, PriceContainer } from './ProductList.styles';
+import React, { useState, useEffect } from "react";
+import { Button } from "../../App.styles";
+import {
+  ProductCard,
+  PriceContainer,
+  ProductImg,
+  Title,
+  Description,
+  Price,
+  DiscountPercentage,
+  DiscountedPrice,
+  RegularPrice,
+} from "./ProductList.styles";
+import { fetchAllProducts } from "../../api/apiCalls";
 
 const ProductList = () => {
-  // Sample data for test purposes
-  const products = [
-    { id: 1, title: "Product 1", description: "Description for product 1", price: 100, salePrice: 80, discount: 20 },
-    { id: 2, title: "Product 2", description: "Description for product 2", price: 50, salePrice: null, discount: null },
-    { id: 3, title: "Product 3", description: "Description for product 3", price: 75, salePrice: 60, discount: 20 },
-  ];
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const [searchTerm, setSearchTerm] = useState(''); 
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        setIsLoading(true);
+        const data = await fetchAllProducts();
+        setProducts(data);
+        setIsLoading(false);
+      } catch (error) {
+        setIsError(true);
+        setIsLoading(false);
+      }
+    };
+
+    loadProducts();
+  }, []);
+
+  const calculateDiscountPercentage = (price, discountedPrice) => {
+    if (!discountedPrice || discountedPrice >= price) return 0;
+    return ((price - discountedPrice) / price) * 100;
+  };
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = () => {
-    
     console.log("Searching for:", searchTerm);
-    
   };
 
+  if (isLoading) return <div>Loading products...</div>;
+  if (isError) return <div>Error loading products.</div>;
+
   return (
-    <div>
-      <h1 className='text-center my-4'>Welcome to Our Store</h1>
+    <div className="col-10 m-auto">
+      <h1 className="text-center my-4">Our Products</h1>
+
       <div className="input-group mb-4 w-50 m-auto">
         <input
           type="text"
           placeholder="Search for products..."
           className="form-control"
-          value={searchTerm} 
-          onChange={(e) => setSearchTerm(e.target.value)} 
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <Button onClick={handleSearch} className="btn btn-primary">Search</Button> {}
+        <Button onClick={handleSearch} className="btn btn-primary">
+          Search
+        </Button>{" "}
+        {}
       </div>
-      <div className="product-container">
-        <div className="row justify-content-evenly">
-          {/* Placeholder for product cards */}
-          {products.map((product) => (
-            <ProductCard key={product.id} className="product-card card col-12 col-sm-5 col-md-4 col-lg-3 text-center m-2">
-              <img className="card-img-top img-fluid" src={product.image || productImg} alt={product.title} />
-              <h2 className="card-title mt-2">{product.title}</h2>
-              <p>{product.description}</p>
-              <PriceContainer>
-                {product.salePrice ? (
-                  <>
-                    <span className="text-danger" style={{ textDecoration: 'line-through', display: 'block', height: '30px' }}>
-                      Price: ${product.price.toFixed(2)}
-                    </span>
-                    <span style={{ display: 'block', height: '30px' }}>
-                      Sale Price: ${product.salePrice.toFixed(2)}
-                    </span>
-                    <div className="text-success" style={{ display: 'block', height: '30px' }}>
-                      {product.discount}% off
-                    </div>
-                  </>
-                ) : (
-                  <span>Price: ${product.price.toFixed(2)}</span>
-                )}
-              </PriceContainer>
-              <Button className='m-4'>View Product</Button>
-            </ProductCard>
-          ))}
-        </div>
+      <div className="row justify-content-evenly">
+        {products.map((product) => {
+          const discountPercentage = calculateDiscountPercentage(
+            product.price,
+            product.discountedPrice
+          );
+
+          return (
+            <div
+              className="col-12 col-sm-6 col-xl-4 mb-3 p-0 m-auto"
+              key={product.id}
+            >
+              <ProductCard className="card text-center m-auto col-11 ">
+                <ProductImg
+                  src={product.image.url}
+                  alt={product.image.alt}
+                  className="card-img-top img-fluid"
+                />
+                <Title className="mt-3">{product.title}</Title>
+                <Description className="col-10 mb-4 m-auto">
+                  {product.description}
+                </Description>
+                <PriceContainer>
+                  {discountPercentage > 0 ? (
+                    <>
+                      <RegularPrice>
+                        Price: ${product.price.toFixed(2)}
+                      </RegularPrice>
+                      <DiscountPercentage>
+                        {discountPercentage.toFixed(2)}% off
+                      </DiscountPercentage>
+                      <DiscountedPrice>
+                        Price: ${product.discountedPrice.toFixed(2)}
+                      </DiscountedPrice>
+                    </>
+                  ) : (
+                    <Price>Price: ${product.price.toFixed(2)}</Price>
+                  )}
+                </PriceContainer>
+                <Button className="m-4">View Product</Button>
+              </ProductCard>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
