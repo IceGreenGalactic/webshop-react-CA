@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import Theme from './styles/theme.jsx';
+import HomePage from './pages/HomePage/HomePage.jsx';
 
 import './App.css'
 
@@ -14,7 +15,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <main>
- 
+      <HomePage />
       </main>
       <Footer />
     </Theme>

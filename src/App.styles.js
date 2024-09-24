@@ -9,6 +9,8 @@ export const Button = styled.button`
   border: 0;
   cursor: pointer;
   font-weight: 600;
+  font-family: 'Playwrite DE Grund', Arial, sans-serif;
+
 
   &:hover {
     background: ${(props) => props.theme.color.btnHover}; 
