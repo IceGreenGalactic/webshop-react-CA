@@ -8,6 +8,7 @@ export const ProductCard = styled.div`
   justify-content: space-around;
   height: 100%;
   max-width: 400px;
+  cursor: default;
 `;
 
 export const ProductImg = styled.img`

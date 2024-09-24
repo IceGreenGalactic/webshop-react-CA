@@ -15,7 +15,6 @@ import { fetchAllProducts } from "../../api/apiCalls";
 import { Link } from "react-router-dom";
 import Star from "../../components/star";
 
-
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -79,7 +78,11 @@ const ProductList = () => {
               className="col-12 col-sm-6 col-xl-4 mb-3 p-0 m-auto"
               key={product.id}
             >
-              <ProductCard className="card text-center m-auto col-11 ">
+              <ProductCard
+                as={Link}
+                to={`/SingleProductPage/${product.id}`}
+                className="card text-center m-auto text-decoration-none col-11"
+              >
                 <ProductImg
                   src={product.image.url}
                   alt={product.image.alt}
@@ -91,7 +94,7 @@ const ProductList = () => {
                 </Description>
                 <div className="my-3">
                   <strong>
-                    Rating: 
+                    Rating:
                     {Array.from({ length: 5 }, (_, index) => (
                       <Star key={index} filled={index < product.rating} />
                     ))}
@@ -115,9 +118,7 @@ const ProductList = () => {
                     <Price>Price: ${product.price.toFixed(2)}</Price>
                   )}
                 </PriceContainer>
-                <Link to={`/SingleProductPage/${product.id}`}>
-  <Button className="m-4">View Product</Button>
-</Link>
+                <Button className="m-4">View Product</Button>
               </ProductCard>
             </div>
           );
