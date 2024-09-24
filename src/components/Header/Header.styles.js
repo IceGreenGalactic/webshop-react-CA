@@ -23,6 +23,8 @@ export const Logo = styled.img`
 export const NavLinks = styled.ul`
   display: flex;
   list-style: none;
+  font-family: 'Playwrite DE Grund', Arial, sans-serif;
+
 `;
 
 export const NavLink = styled.li`
