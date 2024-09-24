@@ -62,8 +62,7 @@ export const Price = styled.span`
   margin-top: 10px;
 `;
 
-export const ReviewsContainer = styled.div`
-  background: ${(props) => props.theme.color.cardBackground};
-`;
-
+export const ReviewCard = styled.div `
+background: ${(props) => props.theme.color.cardBackground};
+`
 

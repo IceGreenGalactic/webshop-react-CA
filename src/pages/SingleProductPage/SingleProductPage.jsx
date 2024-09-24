@@ -11,7 +11,7 @@ import {
   DiscountPercentage,
   DiscountedPrice,
   Price,
-  ReviewsContainer,
+  ReviewCard,
 } from "./SingleProductPage.style";
 import Star from "../../components/star";
 import { Button } from "../../App.styles";
@@ -77,7 +77,7 @@ const SingleProductPage = () => {
         {/* Rating Section */}
         <div className="mt-3">
           <strong>
-            Rating: 
+            Rating:
             {Array.from({ length: 5 }, (_, index) => (
               <Star key={index} filled={index < product.rating} />
             ))}
@@ -107,24 +107,30 @@ const SingleProductPage = () => {
         </Button>
 
         <div className="mt-5">
-          <h3>Customer Reviews</h3> 
-          <ReviewsContainer className="card col-8 m-auto">
+          <h3>Customer Reviews</h3>
+          <div className="card-body col-8 m-auto p-4">
             {product.reviews && product.reviews.length > 0 ? (
               product.reviews.map((review) => (
-                <div key={review.id} className="mt-3">
-                  <h3>{review.username}</h3> 
-                  <span>
-                  {Array.from({ length: 5 }, (_, index) => (
-                    <Star key={index} filled={index < review.rating} />
-                  ))}
-                </span>
-                  <p>{review.description}</p>
-                </div>
+                <ReviewCard key={review.id} className=" p-3 mb-3 card">
+                  <h5 className="card-title text-decoration-underline">
+                    {review.username}
+                  </h5>
+                  <div className="rating">
+                    {Array.from({ length: 5 }, (_, index) => (
+                      <Star key={index} filled={index < review.rating} />
+                    ))}
+                  </div>
+                  <p className="card-body">{review.description}</p>
+                </ReviewCard>
               ))
             ) : (
-              <p>No reviews available for this product.</p>
-            )}{" "}
-          </ReviewsContainer>
+              <p>
+                No reviews available for this product. <br /> Be the first to
+                review this product{" "}
+              </p>
+            )}
+            <Button>Create Review</Button>
+          </div>
         </div>
       </ProductCard>
     </div>
