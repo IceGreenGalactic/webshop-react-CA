@@ -9,6 +9,8 @@ import {
   CardDetailsContainer,
   RadioButtonContainer,
 } from "./Checkout.styles.js";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../Cart/cartSlice";
 
 const schema = yup
   .object()
@@ -30,14 +32,18 @@ const CheckoutForm = () => {
     resolver: yupResolver(schema),
   });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.cart); 
   const [selectedCard, setSelectedCard] = useState("");
 
   const onSubmit = (data) => {
     console.log("Form data submitted:", data);
+
     // Simulate processing the payment
     setTimeout(() => {
       console.log("Payment processed successfully!");
-      navigate("/CheckoutSuccess");
+      dispatch(clearCart()); 
+      navigate("/CheckoutSuccess", { state: { purchasedItems: products } });
       reset();
     }, 2000);
   };
@@ -58,7 +64,7 @@ const CheckoutForm = () => {
 
   return (
     <div className="col-8 col-lg-6 col-md-7 col-xl-5 m-auto mt-5 card p-4">
-      <h1 className="mb-4">Payment</h1>
+      <h1 className="text-center mb-4">Checkout</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
           <label className="col-sm-12 col-form-label">Select Card Type:</label>
