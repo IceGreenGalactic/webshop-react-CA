@@ -4,7 +4,6 @@ import Counter from "./Counter.jsx";
 import { removeProduct, clearCart } from "./cartSlice.js";
 import {
   CartContainer,
-  Quantity,
   CartItem,
   Image,
   DeleteBtn,
@@ -12,10 +11,12 @@ import {
   TotalContainer,
 } from "./Cart.styles.js";
 import { Button } from "../../App.styles.js";
+import { useNavigate } from "react-router-dom"; 
 
 const Cart = () => {
   const dispatch = useDispatch();
   const { products, cartTotal } = useSelector((state) => state.cart);
+  const navigate = useNavigate();
 
   const handleRemove = (productId) => {
     dispatch(removeProduct(productId));
@@ -25,10 +26,12 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
+  const handleCheckout = () => {
+    navigate("/Checkout"); 
+  };
 
- 
   return (
-    <div className="col-10 m-auto col-lg-8 col-xl-6 mt-3 ">
+    <div className="col-10 m-auto col-lg-8 col-xl-6 mt-3">
       <h1 className="my-5">Your Cart</h1>
       {products.length === 0 ? (
         <p>Your cart is empty. Add some products!</p>
@@ -41,7 +44,7 @@ const Cart = () => {
 
             return (
               <CartItem
-                className="border-bottom border-top gap-5 "
+                className="border-bottom border-top gap-5"
                 key={product.id}
               >
                 <Image
@@ -62,7 +65,6 @@ const Cart = () => {
                         : product.price.toFixed(2)}
                     </p>
 
-                    {/* Use Counter component to handle quantity */}
                     <Counter productId={product.id} quantity={product.quantity} />
 
                     <p>Total: ${totalPrice}</p>
@@ -83,7 +85,7 @@ const Cart = () => {
             <Button className="me-4" onClick={handleClearCart}>
               Clear Cart
             </Button>
-            <Button>Checkout</Button>
+            <Button onClick={handleCheckout}>Checkout</Button>
           </TotalContainer>
         </>
       )}
