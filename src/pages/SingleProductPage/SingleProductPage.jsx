@@ -15,12 +15,21 @@ import {
 } from "./SingleProductPage.style";
 import Star from "../../components/star";
 import { Button } from "../../App.styles";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../Cart/cartSlice";
+
+
 
 const SingleProductPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addProduct(product));  
+  };
 
   // Function to calculate discount percentage
   const calculateDiscountPercentage = (price, discountedPrice) => {
@@ -102,7 +111,7 @@ const SingleProductPage = () => {
           )}
         </PriceContainer>
 
-        <Button className="w-50 m-auto mt-4">
+        <Button onClick={handleAddToCart} className="w-50 m-auto mt-4">
           Add to cart <i className="fa-solid fa-cart-shopping"></i>
         </Button>
 
