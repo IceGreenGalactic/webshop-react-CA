@@ -12,14 +12,20 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../Cart/cartSlice";
 
-const schema = yup
-  .object()
-  .shape({
-    cardNumber: yup.string().required("Card number is required"),
-    expiryDate: yup.string().required("Expiry date is required"),
-    cvc: yup.string().required("CVC is required"),
-  })
-  .required();
+const schema = yup.object().shape({
+    cardNumber: yup
+      .string()
+      .required("Card number is required")
+      .matches(/^\d{16}$/, "Card number must be exactly 16 digits"),
+    expiryDate: yup
+      .string()
+      .required("Expiry date is required")
+      .matches(/^(0[1-9]|1[0-2])\/?([0-9]{2})$/, "Expiry date must be in MM/YY format"),
+    cvc: yup
+      .string()
+      .required("CVC is required")
+      .matches(/^\d{3}$/, "CVC must be exactly 3 digits"),
+  });
 
 const CheckoutForm = () => {
   const {
