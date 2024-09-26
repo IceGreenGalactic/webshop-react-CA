@@ -4,81 +4,81 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 
-// Define Yup validation schema
+
 const schema = yup.object({
   fullName: yup.string().min(3, 'Name must be at least 3 characters').required('Full Name is required'),
+  subject: yup.string().min(3, 'Subject must be at least 3 characters').required('Subject is required'),
   email: yup.string().email('Enter a valid email').required('Email is required'),
-  address: yup.string().required('Address is required'),
-  city: yup.string().required('City is required'),
-  zipCode: yup.string().matches(/^\d{5}$/, 'Zip Code must be exactly 5 digits').required('Zip Code is required'),
+  body: yup.string().min(3, 'Message must be at least 3 characters').required('Message is required'),
 }).required();
 
-const contactForm = () => {
-  const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm({
+const ContactForm = () => {
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
   });
-  const navigate = useNavigate();
+ 
+  
+
+  const [successMessage, setSuccessMessage] = useState('');
 
 
-  // Handle form submission
   const onSubmit = (data) => {
     console.log('Form data submitted:', data);
+   
     setTimeout(() => {
-      console.log('Payment processed successfully!');
-      navigate('/CheckoutSuccess');
-      reset();
+      console.log('Form submitted successfully!');
+      setSuccessMessage('Thank you for your message! We will get back to you soon.');
+      reset(); 
     }, 2000);
   };
 
-
-
   return (
-    <div className="col-8 m-auto mt-5 card p-4">
+    <div className='col-10 col-lg-8 m-auto'>
+        <div className=' mt-4 col-sm-8 m-auto '>
+        <h1>Contact us!</h1>
+        <p>We'd love to hear from you! Please fill out the form below, and we'll get back to you as soon as possible.</p>
+      
+        </div>
+    <div className="col-sm-8 m-auto mt-5 card p-4">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-1 row">
           <label htmlFor="fullName" className="col-sm-12 col-form-label">Full Name:</label>
-          <div className="col-sm-8">
+          <div className="col-sm-10">
             <input {...register('fullName')} className="form-control" placeholder="Enter your full name" />
             <p className="text-danger">{errors.fullName?.message}</p>
           </div>
         </div>
 
         <div className="mb-1 row">
+          <label htmlFor="subject" className="col-sm-12 col-form-label">Subject:</label>
+          <div className="col-sm-10">
+            <input {...register('subject')} className="form-control" placeholder="Enter the subject" />
+            <p className="text-danger">{errors.subject?.message}</p>
+          </div>
+        </div>
+
+        <div className="mb-1 row">
           <label htmlFor="email" className="col-sm-12 col-form-label">Email:</label>
-          <div className="col-sm-8">
+          <div className="col-sm-10">
             <input {...register('email')} className="form-control" placeholder="Enter your email" />
             <p className="text-danger">{errors.email?.message}</p>
           </div>
         </div>
 
         <div className="mb-1 row">
-          <label htmlFor="address" className="col-sm-12 col-form-label">Address:</label>
-          <div className="col-sm-8">
-            <input {...register('address')} className="form-control" placeholder="Enter your address" />
-            <p className="text-danger">{errors.address?.message}</p>
+          <label htmlFor="body" className="col-sm-12 col-form-label">Message:</label>
+          <div className="col-sm-10">
+            <textarea {...register('body')} className="form-control" placeholder="Enter your message" />
+            <p className="text-danger">{errors.body?.message}</p>
           </div>
         </div>
 
-        <div className="mb-1 row">
-          <label htmlFor="city" className="col-sm-12 col-form-label">City:</label>
-          <div className="col-sm-8">
-            <input {...register('city')} className="form-control" placeholder="Enter your city" />
-            <p className="text-danger">{errors.city?.message}</p>
-          </div>
-        </div>
-
-        <div className="mb-1 row">
-          <label htmlFor="zipCode" className="col-sm-12 col-form-label">Zip Code:</label>
-          <div className="col-sm-8">
-            <input {...register('zipCode')} className="form-control" placeholder="Enter your zip code" />
-            <p className="text-danger">{errors.zipCode?.message}</p>
-          </div>
-        </div>
-
-        <button type="submit" className="btn btn-primary">Submit Payment</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
-    </div>
+
+      {successMessage && <div className="mt-3 alert alert-success">{successMessage}</div>}
+    </div></div>
   );
 };
 
-export default contactForm;
+export default ContactForm;
