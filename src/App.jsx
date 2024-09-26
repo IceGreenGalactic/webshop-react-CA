@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage/HomePage.jsx';
 import SingleProductPage from './pages/SingleProductPage/SingleProductPage.jsx';
 import Checkout from './pages/Checkout/Checkout.jsx';
 import CheckoutSuccess from './pages/Checkout/CheckoutSuccess.jsx';
-
+import ContactForm from './pages/Contact/Contact.jsx';
 import './App.css';
 import Cart from './pages/Cart/Cart.jsx';
 
@@ -20,6 +20,7 @@ function App() {
           <Route path="/SingleProductPage/:productId" element={<SingleProductPage />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Checkout" element={<Checkout />} />
+          <Route path="/ContactForm" element={<ContactForm />} />
           <Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
         </Routes>
       </main>
