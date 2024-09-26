@@ -17,6 +17,7 @@ import Star from "../../components/star";
 import { Button } from "../../App.styles";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../Cart/cartSlice";
+import { useNotification } from "../../components/Header/NotificationContext";
 
 
 
@@ -26,9 +27,11 @@ const SingleProductPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
+  const { triggerNotification } = useNotification();
 
   const handleAddToCart = () => {
-    dispatch(addProduct(product));  
+    dispatch(addProduct(product));
+    triggerNotification();  
   };
 
   // Function to calculate discount percentage
