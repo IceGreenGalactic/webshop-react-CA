@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "../../App.styles";
+import SearchBar from "../SearchBar/SearchBar";
 import {
   ProductCard,
   PriceContainer,
@@ -13,10 +14,11 @@ import {
 } from "./ProductList.styles";
 import { fetchAllProducts } from "../../api/apiCalls";
 import { Link } from "react-router-dom";
-import Star from "../../components/star";
+import Star from "../star";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -26,6 +28,7 @@ const ProductList = () => {
         setIsLoading(true);
         const data = await fetchAllProducts();
         setProducts(data);
+        setFilteredProducts(data);
         setIsLoading(false);
       } catch (error) {
         setIsError(true);
@@ -40,10 +43,13 @@ const ProductList = () => {
     if (!discountedPrice || discountedPrice >= price) return 0;
     return ((price - discountedPrice) / price) * 100;
   };
-  const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearch = () => {
-    console.log("Searching for:", searchTerm);
+  const handleSearch = (searchTerm) => {
+    const filtered = products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(filtered);
   };
 
   if (isLoading) return <div>Loading products...</div>;
@@ -52,22 +58,9 @@ const ProductList = () => {
   return (
     <div className="col-10 m-auto">
       <h1 className="text-center my-4">Our Products</h1>
-
-      <div className="input-group mb-4 w-50 m-auto">
-        <input
-          type="text"
-          placeholder="Search for products..."
-          className="form-control"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <Button onClick={handleSearch} className="btn btn-primary">
-          Search
-        </Button>{" "}
-        {}
-      </div>
+      <SearchBar onSearch={handleSearch} />
       <div className="row justify-content-evenly">
-        {products.map((product) => {
+        {filteredProducts.map((product) => {
           const discountPercentage = calculateDiscountPercentage(
             product.price,
             product.discountedPrice
