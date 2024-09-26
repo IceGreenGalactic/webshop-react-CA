@@ -19,10 +19,10 @@ const Header = () => {
             <Link to="/" className="nav-link">Home</Link>
           </NavLink>
           <NavLink>
-            <Link to="/contact" className="nav-link">Contact</Link>
+            <Link to="/ContactForm" className="nav-link">Contact</Link>
           </NavLink>
           <NavLink>
-            <Link to="/cart" className="nav-link">
+            <Link to="/Cart" className="nav-link">
               <i className="fa-solid fa-cart-shopping"></i>({totalQuantity})
             </Link>
           </NavLink>
