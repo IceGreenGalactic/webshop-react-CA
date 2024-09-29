@@ -84,11 +84,11 @@ const SingleProductPage = () => {
   );
 
   return (
-    <div className="m-auto col-10">
+    <div className="m-auto col-12 col-sm-10">
       <ProductCard className="m-auto text-center">
-        <Title className="my-5">{product.title}</Title>
+        <Title className="my-3">{product.title}</Title>
         <ProductImg src={product.image.url} alt={product.image.alt} />
-        <Description className="text-center m-auto col-8 mt-4">
+        <Description className="text-center m-auto col-8">
           {product.description}
         </Description>
 
@@ -135,7 +135,7 @@ const SingleProductPage = () => {
 
         <div className="mt-5">
           <h3>Customer Reviews</h3>
-          <div className="card-body col-8 m-auto p-4">
+          <div className="card-body col-12 col-sm-10 col-md-8 m-auto p-4">
             {product.reviews && product.reviews.length > 0 ? (
               product.reviews.map((review) => (
                 <ReviewCard key={review.id} className=" p-3 mb-3 card">

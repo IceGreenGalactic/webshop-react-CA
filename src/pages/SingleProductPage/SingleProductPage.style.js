@@ -12,7 +12,7 @@ export const ProductCard = styled.div`
 `;
 
 export const ProductImg = styled.img`
-  height: 60vh;
+  height: 50vh;
   width: 100%;
   object-fit: contain;
 `;
