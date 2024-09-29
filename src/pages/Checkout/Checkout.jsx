@@ -11,6 +11,7 @@ import {
 } from "./Checkout.styles.js";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../Cart/cartSlice";
+import GoBackButton from "../../components/GoBackBtn.jsx";
 
 const schema = yup.object().shape({
     cardNumber: yup
@@ -69,7 +70,8 @@ const CheckoutForm = () => {
   };
 
   return (
-    <div className="col-8 col-lg-6 col-md-7 col-xl-5 m-auto mt-5 card p-4">
+    <div className="col-10 m-auto"><GoBackButton />
+    <div className=" col-lg-6 col-md-8 col-xl-5 m-auto mt-4 card p-4">
       <h1 className="text-center mb-4">Checkout</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
@@ -182,7 +184,7 @@ const CheckoutForm = () => {
           Submit Payment
         </button>
       </form>
-    </div>
+    </div></div>
   );
 };
 

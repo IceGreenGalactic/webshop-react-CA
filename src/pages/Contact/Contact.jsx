@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
+import GoBackButton from "../../components/GoBackBtn.jsx";
 
 
 const schema = yup.object({
@@ -34,6 +34,7 @@ const ContactForm = () => {
 
   return (
     <div className='col-10 col-lg-8 m-auto'>
+        <GoBackButton />
         <div className=' mt-4 col-sm-8 m-auto '>
         <h1>Contact us!</h1>
         <p>We'd love to hear from you! Please fill out the form below, and we'll get back to you as soon as possible.</p>

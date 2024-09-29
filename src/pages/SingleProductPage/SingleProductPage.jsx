@@ -18,6 +18,7 @@ import { Button } from "../../App.styles";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../Cart/cartSlice";
 import { useNotification } from "../../components/Header/NotificationContext";
+import GoBackButton from "../../components/GoBackBtn.jsx";
 
 const SingleProductPage = () => {
   const { productId } = useParams();
@@ -85,6 +86,7 @@ const SingleProductPage = () => {
 
   return (
     <div className="m-auto col-12 col-sm-10">
+        <GoBackButton />
       <ProductCard className="m-auto text-center">
         <Title className="my-3">{product.title}</Title>
         <ProductImg src={product.image.url} alt={product.image.alt} />

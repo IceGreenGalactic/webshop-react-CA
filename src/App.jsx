@@ -19,13 +19,13 @@ function App() {
       <main>
          <ScrollToTop />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/SingleProductPage/:productId" element={<SingleProductPage />} />
-          <Route path="/Cart" element={<Cart />} />
-          <Route path="/Checkout" element={<Checkout />} />
-          <Route path="/ContactForm" element={<ContactForm />} />
-          <Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
-          <Route path="/PageNotFound" element={<PageNotFound />} />
+          <Route path="/" element={<HomePage key={location.pathname} />} />
+          <Route path="/SingleProductPage/:productId" element={<SingleProductPage key={location.pathname} />} />
+          <Route path="/Cart" element={<Cart key={location.pathname} />} />
+          <Route path="/Checkout" element={<Checkout key={location.pathname} />} />
+          <Route path="/ContactForm" element={<ContactForm key={location.pathname} />} />
+          <Route path="/CheckoutSuccess" element={<CheckoutSuccess key={location.pathname} />} />
+          <Route path="/PageNotFound" element={<PageNotFound key={location.pathname} />} />
           
         </Routes>
       </main>
