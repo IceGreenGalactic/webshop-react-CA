@@ -1,11 +1,15 @@
 // Footer.styles.js
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.color.primary};
+   opacity: 0.8;
   color: white;
+  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.7);
   padding: 10px;
   text-align: center;
+   
 `;
 
 export const FooterSection = styled.div`
@@ -32,12 +36,11 @@ export const Icon = styled.a`
 `;
 
 export const FooterLinks = styled.div`
-  display: flex;
   justify-content: center;
   margin-bottom: 20px;
 `;
 
-export const FooterLink = styled.a`
+export const FooterLink = styled(Link)`
   margin: 0 10px;
   text-decoration: none;
   color: white;
