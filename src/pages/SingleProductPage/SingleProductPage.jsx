@@ -19,19 +19,25 @@ import { useDispatch } from "react-redux";
 import { addProduct } from "../Cart/cartSlice";
 import { useNotification } from "../../components/Header/NotificationContext";
 
-
-
 const SingleProductPage = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [addingToCart, setAddingToCart] = useState(false);
   const dispatch = useDispatch();
   const { triggerNotification } = useNotification();
 
   const handleAddToCart = () => {
-    dispatch(addProduct(product));
-    triggerNotification();  
+    if (addingToCart) return; 
+
+    setAddingToCart(true);
+    dispatch(addProduct(product)); 
+    triggerNotification(); 
+
+    setTimeout(() => {
+      setAddingToCart(false); 
+    }, 1000); 
   };
 
   // Function to calculate discount percentage
@@ -114,8 +120,17 @@ const SingleProductPage = () => {
           )}
         </PriceContainer>
 
-        <Button onClick={handleAddToCart} className="w-50 m-auto mt-4">
-          Add to cart <i className="fa-solid fa-cart-shopping"></i>
+        {/* Add to Cart Button */}
+        <Button onClick={handleAddToCart} className="col-7 col-sm-4 col-lg-3 m-auto mt-4" disabled={addingToCart}>
+          {addingToCart ? (
+            <>
+              <i className="fa fa-spinner fa-spin"></i> Adding...
+            </>
+          ) : (
+            <>
+              Add to cart <i className="fa-solid fa-cart-shopping"></i>
+            </>
+          )}
         </Button>
 
         <div className="mt-5">
