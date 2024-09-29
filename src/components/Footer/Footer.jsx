@@ -32,9 +32,9 @@ const Footer = () => {
 
       <FooterLinks className="d-flex">
       <FooterLink to="/ContactForm">Contact</FooterLink>
-        <FooterLink href="/#">Terms & Conditions</FooterLink>
-        <FooterLink href="/#">Privacy Policy</FooterLink>
-        <FooterLink href="/#">Return Policy</FooterLink>
+      <FooterLink to="/PageNotFound">Terms & Conditions</FooterLink>
+      <FooterLink to="/PageNotFound">Privacy Policy</FooterLink>
+      <FooterLink to="/PageNotFound">Return Policy</FooterLink>
       </FooterLinks>
 
       <Copyright>© 2024 ECCOH Store. All rights reserved.</Copyright>

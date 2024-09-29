@@ -9,6 +9,7 @@ import CheckoutSuccess from './pages/Checkout/CheckoutSuccess.jsx';
 import ContactForm from './pages/Contact/Contact.jsx';
 import './App.css';
 import Cart from './pages/Cart/Cart.jsx';
+import PageNotFound from './pages/pageNotFound/PageNotFound.jsx';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
           <Route path="/Checkout" element={<Checkout />} />
           <Route path="/ContactForm" element={<ContactForm />} />
           <Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
+          <Route path="/PageNotFound" element={<PageNotFound />} />
+          
         </Routes>
       </main>
    
