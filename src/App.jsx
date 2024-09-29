@@ -10,12 +10,14 @@ import ContactForm from './pages/Contact/Contact.jsx';
 import './App.css';
 import Cart from './pages/Cart/Cart.jsx';
 import PageNotFound from './pages/pageNotFound/PageNotFound.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 function App() {
   return (
     <Router>
       <Header />
       <main>
+         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/SingleProductPage/:productId" element={<SingleProductPage />} />
