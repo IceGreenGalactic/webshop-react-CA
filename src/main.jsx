@@ -7,14 +7,17 @@ import "./index.css";
 import Theme from "./styles/theme.jsx";
 import GlobalStyle from "./styles/GlobalStyle.jsx";
 import { store } from "./pages/Cart/store.js";
+import { NotificationProvider } from "./components/Header/NotificationContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Theme>
       <GlobalStyle />
+      <NotificationProvider>
       <Provider store={store}>
         <App />
       </Provider>
+      </NotificationProvider>
     </Theme>
   </StrictMode>
 );
