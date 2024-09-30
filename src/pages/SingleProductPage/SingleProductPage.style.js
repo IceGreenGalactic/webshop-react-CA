@@ -11,10 +11,26 @@ export const ProductCard = styled.div`
   margin: 20px auto;
 `;
 
+export const ImageContainer = styled.div`
+position: relative;
+
+`
 export const ProductImg = styled.img`
-  height: 50vh;
+  height: auto;
   width: 100%;
   object-fit: contain;
+`;
+
+export const DiscountPercentage = styled.div`
+    position: absolute;
+  top: 10px; 
+  right: 10px; 
+  color: white;
+  background: rgba(255, 0, 0, 0.8); 
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  z-index: 10;
 `;
 
 export const Title = styled.h1`
@@ -42,11 +58,7 @@ export const RegularPrice = styled.span`
   font-size: 1.2rem;
 `;
 
-export const DiscountPercentage = styled.div`
-  font-size: 1rem;
-  color: green;
-  margin-top: 10px;
-`;
+
 
 export const DiscountedPrice = styled.span`
   font-size: 1.5rem;
