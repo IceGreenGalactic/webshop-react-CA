@@ -14,8 +14,10 @@ const Header = () => {
     <StyledHeader>
       <Nav>
         <div className="logo">
+        <Link to="/"> 
           <img src={logo} alt="ECCOH store logo" />
-        </div>
+          </Link>
+            </div>
         <NavLinks>
           <NavLink>
             <Link to="/" className="nav-link">Home</Link>
