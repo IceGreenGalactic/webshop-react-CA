@@ -17,7 +17,3 @@ export const Button = styled.button`
   }
 `;
 
-export const GoBack = styled(Button)`
-  margin-top: 20px; 
-  padding:5px 10px 5px 10px;
-`;

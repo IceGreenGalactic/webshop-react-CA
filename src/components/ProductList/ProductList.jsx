@@ -45,9 +45,10 @@ const ProductList = () => {
   };
 
   const handleSearch = (searchTerm) => {
-    const filtered = products.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = products.filter(
+      (product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProducts(filtered);
   };
@@ -98,17 +99,17 @@ const ProductList = () => {
                   {discountPercentage > 0 ? (
                     <>
                       <RegularPrice>
-                        Price: ${product.price.toFixed(2)}
+                        Price:  {product.price.toFixed(2)},-
                       </RegularPrice>
                       <DiscountPercentage>
                         {discountPercentage.toFixed(2)}% off
                       </DiscountPercentage>
                       <DiscountedPrice>
-                        Price: ${product.discountedPrice.toFixed(2)}
+                        Price:  {product.discountedPrice.toFixed(2)},-
                       </DiscountedPrice>
                     </>
                   ) : (
-                    <Price>Price: ${product.price.toFixed(2)}</Price>
+                    <Price>Price: {product.price.toFixed(2)},-</Price>
                   )}
                 </PriceContainer>
                 <Button className="m-4">View Product</Button>

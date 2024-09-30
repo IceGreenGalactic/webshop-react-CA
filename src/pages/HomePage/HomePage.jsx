@@ -7,7 +7,6 @@ import {
   HeroTextContainer,
 } from "./HomePage.syles.js";
 
-import GoBackButton from "../../components/GoBackBtn.jsx";
 
 const HomePage = () => {
   return (

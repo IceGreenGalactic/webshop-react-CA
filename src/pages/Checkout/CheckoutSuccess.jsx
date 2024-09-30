@@ -32,8 +32,8 @@ const CheckoutSuccess = () => {
                      
                     />
                     <div>
-                      <strong>{item.title}</strong>: $
-                      {item.discountedPrice || item.price}
+                      <strong>{item.title}</strong>: 
+                      {item.discountedPrice || item.price},-
                       <div className="text-muted">
                         Quantity: {item.quantity}
                       </div>
@@ -45,7 +45,7 @@ const CheckoutSuccess = () => {
               <li>No items purchased.</li>
             )}
           </ul>
-          <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
+          <h3>Total Price: {totalPrice.toFixed(2)},-</h3>
         </div>
         <Button
           onClick={() => navigate("/")}

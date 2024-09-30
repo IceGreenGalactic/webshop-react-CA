@@ -12,7 +12,6 @@ import {
 } from "./Cart.styles.js";
 import { Button } from "../../App.styles.js";
 import { useNavigate } from "react-router-dom";
-import GoBackButton from "../../components/GoBackBtn.jsx";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -34,7 +33,6 @@ const Cart = () => {
   return (
     <div className="col-10 m-auto col-lg-8 col-xl-6 mt-3">
       {" "}
-      <GoBackButton />
       <h1 className="my-5">Your Cart</h1>
       {products.length === 0 ? (
         <p>Your cart is empty. Add some products!</p>
@@ -73,7 +71,7 @@ const Cart = () => {
                       quantity={product.quantity}
                     />
 
-                    <p>Total: ${totalPrice}</p>
+                    <p>Total: {totalPrice},-</p>
                   </CartContainer>
                 </div>
 
@@ -87,7 +85,7 @@ const Cart = () => {
             );
           })}
           <TotalContainer className="mt-5 m-auto text-center">
-            <h2>Total: ${cartTotal.toFixed(2)}</h2>
+            <h2>Total: {cartTotal.toFixed(2)},-</h2>
             <Button className="me-4" onClick={handleClearCart}>
               Clear Cart
             </Button>
