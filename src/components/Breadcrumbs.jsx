@@ -28,7 +28,8 @@ function Breadcrumbs() {
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
-          <Link to="/">Home</Link>
+          <Link to="/"
+          className="text-secondary text-decoration-none">Home</Link>
         </li>
 
         {pathnames.map((value, index) => {
@@ -36,8 +37,9 @@ function Breadcrumbs() {
 
           if (value === "SingleProductPage" && productTitle) {
             return (
-              <li key={to} className="breadcrumb-item">
-                <Link to={`/SingleProductPage/${pathnames[1]}`}>
+              <li key={to} className="breadcrumb-item ">
+                <Link to={`/SingleProductPage/${pathnames[1]}`}
+                className="text-dark text-decoration-none">
                   {productTitle}
                 </Link>
               </li>
@@ -50,7 +52,7 @@ function Breadcrumbs() {
 
           return (
             <li key={to} className="breadcrumb-item">
-              <Link to={to}>
+              <Link to={to} className="text-dark text-decoration-none">
                 {value.charAt(0).toUpperCase() + value.slice(1)}
               </Link>
             </li>
