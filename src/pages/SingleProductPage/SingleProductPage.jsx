@@ -19,7 +19,7 @@ import { Button } from "../../App.styles";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../Cart/cartSlice";
 import { useNotification } from "../../components/Header/NotificationContext";
-
+import { Spinner } from "react-bootstrap";
 
 const SingleProductPage = () => {
   const { productId } = useParams();
@@ -68,7 +68,11 @@ const SingleProductPage = () => {
   }, [productId]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <>
+    <Spinner animation="grow" size="sm" /> 
+    <Spinner animation="grow" size="sm" /> 
+    <Spinner animation="grow" size="sm" /> Loading
+    </>
   }
 
   if (error) {
