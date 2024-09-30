@@ -10,33 +10,31 @@ import ContactForm from "./pages/Contact/Contact.jsx";
 import "./App.css";
 import Cart from "./pages/Cart/Cart.jsx";
 import PageNotFound from "./pages/pageNotFound/PageNotFound.jsx";
-import ScrollToTop from "./components/ScrollToTop.jsx";
-import Breadcrumbs from "./components/NavigationContext/Breadcrumbs.jsx";
+import ScrollToTop from "./utils/ScrollToTop.jsx";
+import Breadcrumbs from "./components/Breadcrumbs.jsx";
 function App() {
   return (
+    <Router>
+      <Header />
+      <Breadcrumbs />
+      <main>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/SingleProductPage/:productId"
+            element={<SingleProductPage />}
+          />
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="/Checkout" element={<Checkout />} />
+          <Route path="/ContactForm" element={<ContactForm />} />
+          <Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </main>
 
-      <Router>
-        <Header />
-        <Breadcrumbs />
-        <main>
-          <ScrollToTop />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route
-              path="/SingleProductPage/:productId"
-              element={<SingleProductPage />}
-            />
-            <Route path="/Cart" element={<Cart />} />
-            <Route path="/Checkout" element={<Checkout />} />
-            <Route path="/ContactForm" element={<ContactForm />} />
-            <Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </main>
-
-        <Footer />
-      </Router>
-
+      <Footer />
+    </Router>
   );
 }
 

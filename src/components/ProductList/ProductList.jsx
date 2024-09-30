@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "../../App.styles";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar";
 import {
   ProductCard,
   PriceContainer,
@@ -99,13 +99,13 @@ const ProductList = () => {
                   {discountPercentage > 0 ? (
                     <>
                       <RegularPrice>
-                        Price:  {product.price.toFixed(2)},-
+                        Price: {product.price.toFixed(2)},-
                       </RegularPrice>
                       <DiscountPercentage>
                         {discountPercentage.toFixed(2)}% off
                       </DiscountPercentage>
                       <DiscountedPrice>
-                        Price:  {product.discountedPrice.toFixed(2)},-
+                        Price: {product.discountedPrice.toFixed(2)},-
                       </DiscountedPrice>
                     </>
                   ) : (
