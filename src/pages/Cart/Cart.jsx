@@ -11,7 +11,7 @@ import {
   TotalContainer,
 } from "./Cart.styles.js";
 import { Button } from "../../App.styles.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -48,16 +48,19 @@ const Cart = () => {
                 className="border-bottom border-top gap-5"
                 key={product.id}
               >
-                <Image
-                  className="col-2 p-0"
-                  src={product.image.url}
-                  alt={product.title}
-                />
+                <div className="col-4 p-0">
+                  <Link to={`/SingleProductPage/${product.id}`}>
+                    <Image src={product.image.url} alt={product.title} />
+                  </Link>
+                </div>
 
                 <div className="d-flex justify-content-between">
                   <CartContainer className="me-3 text-start">
                     <TitleContainer>
-                      <h3 className="my-1">{product.title}</h3>
+                    
+                      <h2 className="my-1">
+                        {product.title}
+                      </h2>
                     </TitleContainer>
                     <p className="mb-1">
                       $
@@ -76,7 +79,7 @@ const Cart = () => {
                 </div>
 
                 <DeleteBtn
-                  className="btn btn-transparent text-danger"
+                  className="btn btn-transparent text-danger p-0"
                   onClick={() => handleRemove(product.id)}
                 >
                   <i className="fa-solid fa-trash-can"></i>
