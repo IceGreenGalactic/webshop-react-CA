@@ -11,7 +11,7 @@ import "./App.css";
 import Cart from "./pages/Cart/Cart.jsx";
 import PageNotFound from "./pages/pageNotFound/PageNotFound.jsx";
 import ScrollToTop from "./utils/ScrollToTop.jsx";
-import Breadcrumbs from "./components/Breadcrumbs.jsx";
+import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs.jsx";
 function App() {
   return (
     <Router>
