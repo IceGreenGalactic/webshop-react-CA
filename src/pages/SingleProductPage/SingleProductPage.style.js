@@ -53,8 +53,8 @@ export const PriceContainer = styled.div`
 `;
 
 export const RegularPrice = styled.span`
-  text-decoration: line-through;
-  color: red;
+  text-decoration: line-through 2px red;
+  color: black;
   font-size: 1.2rem;
 `;
 

@@ -59,7 +59,9 @@ const ProductList = () => {
   return (
     <div className="col-10 m-auto">
       <h1 className="text-center my-4">Our Products</h1>
-      <SearchBar onSearch={handleSearch} />
+      <div className="col-10 col-md-8 col-lg-8 m-auto">
+        <SearchBar onSearch={handleSearch} />
+      </div>
       <div className="row justify-content-evenly">
         {filteredProducts.map((product) => {
           const discountPercentage = calculateDiscountPercentage(
@@ -77,7 +79,7 @@ const ProductList = () => {
                 to={`/SingleProductPage/${product.id}`}
                 className="card text-center m-auto text-decoration-none col-11"
               >
-                <div >
+                <div>
                   <ProductImg
                     src={product.image.url}
                     alt={product.image.alt}
