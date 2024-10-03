@@ -26,8 +26,8 @@ const Header = () => {
             <Link to="/ContactForm" className="nav-link">Contact</Link>
           </NavLink>
           <NavLink>
-            <Link to="/Cart" className="nav-link d-flex">
-              <i className="fa-solid fa-cart-shopping"></i>({totalQuantity})
+            <Link to="/Cart" className="nav-link d-flex align-items-baseline">
+              <i className="fa-solid fa-cart-shopping me-2"></i>({totalQuantity})
               {itemAdded && <Notification> +1 item added</Notification>} 
             </Link>
           </NavLink>
