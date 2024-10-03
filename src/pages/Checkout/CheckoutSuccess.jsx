@@ -32,7 +32,7 @@ const CheckoutSuccess = () => {
                      
                     />
                     <div>
-                      <strong>{item.title}</strong>: 
+                      <strong>{item.title}: </strong>   
                       {item.discountedPrice || item.price},-
                       <div className="text-muted">
                         Quantity: {item.quantity}
