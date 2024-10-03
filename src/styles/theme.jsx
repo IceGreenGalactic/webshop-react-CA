@@ -5,7 +5,6 @@ const theme = {
     color: {
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
-        sale: 'red',
         background:'var(--color-background)',
         cardBackground:'var(--color-cards-background)',
         btnHover: 'var(--color-btnHover-background)',

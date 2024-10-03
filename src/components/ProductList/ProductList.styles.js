@@ -47,9 +47,9 @@ export const Price = styled.span`
 `;
 
 export const RegularPrice = styled.span`
-  text-decoration: line-through;
-   color: ${({ theme }) => theme.color.sale};
   margin-right: 10px;
+    text-decoration: line-through 2px red;
+  color: black;
 `;
 
 export const DiscountPercentage = styled.div`
