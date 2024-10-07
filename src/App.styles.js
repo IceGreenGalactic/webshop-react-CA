@@ -16,3 +16,4 @@ export const Button = styled.button`
     background: ${(props) => props.theme.color.btnHover}; 
   }
 `;
+

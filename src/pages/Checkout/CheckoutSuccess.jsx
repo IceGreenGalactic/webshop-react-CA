@@ -1,7 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Button } from "../../App.styles";
-import { Image } from "./CheckoutSuccess.styles";
+import { Image, HomeButton } from "./CheckoutSuccess.styles";
 
 const CheckoutSuccess = () => {
   const location = useLocation();
@@ -17,9 +16,9 @@ const CheckoutSuccess = () => {
   return (
     <div>
       <h1 className="text-center my-4 ">Payment Successful</h1>
-      <div className="col-8 col-lg-6 m-auto mt-5 card p-4">
-        <div className="col-6 m-auto">
-          <h3 className="text-decoration-underline mb-4">Your Receipt</h3>
+      <div className="col-8 col-xl-6 m-auto mt-5 card p-4">
+        <div className="col-10 col-sm-6 m-auto">
+          <h3 className="text-decoration-underline mb-4 ">Your Receipt</h3>
           <ul className="list-unstyled">
             {purchasedItems.length > 0 ? (
               purchasedItems.map((item, index) => (
@@ -29,11 +28,10 @@ const CheckoutSuccess = () => {
                       src={item.image.url}
                       alt={item.image.alt}
                       className="me-3"
-                     
                     />
                     <div>
-                      <strong>{item.title}</strong>: $
-                      {item.discountedPrice || item.price}
+                      <strong>{item.title}: </strong>
+                      {item.discountedPrice || item.price},-
                       <div className="text-muted">
                         Quantity: {item.quantity}
                       </div>
@@ -45,14 +43,14 @@ const CheckoutSuccess = () => {
               <li>No items purchased.</li>
             )}
           </ul>
-          <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
         </div>
-        <Button
+        <h4 className="m-auto">Total Price: {totalPrice.toFixed(2)},-</h4>
+        <HomeButton
           onClick={() => navigate("/")}
-          className="btn btn-primary mt-3 col-8 col-md-6 col-lg-4 m-auto"
+          className="btn btn-link text-decoration-none mt-3 col-8 col-md-6 col-lg-4 col-xl-6 m-auto"
         >
           Return to Home
-        </Button>
+        </HomeButton>
       </div>
     </div>
   );

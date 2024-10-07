@@ -6,7 +6,7 @@ import {
   HeroTitle,
   HeroTextContainer,
 } from "./HomePage.syles.js";
-import SearchBar from "../../components/SearchBar/SearchBar.jsx";
+
 
 const HomePage = () => {
   return (

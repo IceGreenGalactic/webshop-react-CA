@@ -29,6 +29,7 @@ export const Description = styled.p`
   -webkit-line-clamp: 2;
   overflow: hidden;
   margin: 0;
+  padding: 0;
   height: 40px;
   line-height: 20px;
 `;
@@ -38,7 +39,7 @@ export const PriceContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  height: 60px;
+  height: 50px;
 `;
 export const Price = styled.span`
   color: black;
@@ -46,14 +47,21 @@ export const Price = styled.span`
 `;
 
 export const RegularPrice = styled.span`
-  text-decoration: line-through;
-  color: red;
   margin-right: 10px;
+    text-decoration: line-through 2px red;
+  color: black;
 `;
 
 export const DiscountPercentage = styled.div`
-  color: green;
-  margin-right: 10px;
+  position: absolute;
+  top: 10px;
+  right: 10px; 
+  color: white;
+  background: rgba(255, 0, 0, 0.8);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-weight: bold;
+  z-index: 10; 
 `;
 
 export const DiscountedPrice = styled.span`

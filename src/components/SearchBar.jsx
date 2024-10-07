@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "../../App.styles";
+import { Button } from "../App.styles";
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,7 +11,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="input-group mb-4 w-50 m-auto">
+    <div className="input-group mb-4 m-auto">
       <input
         type="text"
         placeholder="Search for products..."

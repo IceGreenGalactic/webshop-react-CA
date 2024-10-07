@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "../../App.styles";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar";
 import {
   ProductCard,
   PriceContainer,
@@ -45,9 +45,10 @@ const ProductList = () => {
   };
 
   const handleSearch = (searchTerm) => {
-    const filtered = products.filter((product) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = products.filter(
+      (product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredProducts(filtered);
   };
@@ -58,7 +59,9 @@ const ProductList = () => {
   return (
     <div className="col-10 m-auto">
       <h1 className="text-center my-4">Our Products</h1>
-      <SearchBar onSearch={handleSearch} />
+      <div className="col-10 col-md-8 col-lg-8 m-auto">
+        <SearchBar onSearch={handleSearch} />
+      </div>
       <div className="row justify-content-evenly">
         {filteredProducts.map((product) => {
           const discountPercentage = calculateDiscountPercentage(
@@ -76,16 +79,23 @@ const ProductList = () => {
                 to={`/SingleProductPage/${product.id}`}
                 className="card text-center m-auto text-decoration-none col-11"
               >
-                <ProductImg
-                  src={product.image.url}
-                  alt={product.image.alt}
-                  className="card-img-top img-fluid"
-                />
+                <div>
+                  <ProductImg
+                    src={product.image.url}
+                    alt={product.image.alt}
+                    className="card-img-top img-fluid"
+                  />
+                  {discountPercentage > 0 && (
+                    <DiscountPercentage>
+                      {discountPercentage.toFixed(0)}% OFF
+                    </DiscountPercentage>
+                  )}
+                </div>
                 <Title className="mt-3">{product.title}</Title>
-                <Description className="col-10 mb-4 m-auto">
+                <Description className="col-10 mb-1 m-auto">
                   {product.description}
                 </Description>
-                <div className="my-3">
+                <div className="mt-2 mb-4">
                   <strong>
                     Rating:
                     {Array.from({ length: 5 }, (_, index) => (
@@ -97,18 +107,15 @@ const ProductList = () => {
                 <PriceContainer>
                   {discountPercentage > 0 ? (
                     <>
-                      <RegularPrice>
-                        Price: ${product.price.toFixed(2)}
+                      <RegularPrice className="my-2">
+                        Price: {product.price.toFixed(2)},-
                       </RegularPrice>
-                      <DiscountPercentage>
-                        {discountPercentage.toFixed(2)}% off
-                      </DiscountPercentage>
                       <DiscountedPrice>
-                        Price: ${product.discountedPrice.toFixed(2)}
+                        Price: {product.discountedPrice.toFixed(2)},-
                       </DiscountedPrice>
                     </>
                   ) : (
-                    <Price>Price: ${product.price.toFixed(2)}</Price>
+                    <Price>Price: {product.price.toFixed(2)},-</Price>
                   )}
                 </PriceContainer>
                 <Button className="m-4">View Product</Button>

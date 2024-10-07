@@ -11,7 +11,7 @@ import {
   TotalContainer,
 } from "./Cart.styles.js";
 import { Button } from "../../App.styles.js";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate, Link } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -27,11 +27,12 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    navigate("/Checkout"); 
+    navigate("/Checkout");
   };
 
   return (
     <div className="col-10 m-auto col-lg-8 col-xl-6 mt-3">
+      {" "}
       <h1 className="my-5">Your Cart</h1>
       {products.length === 0 ? (
         <p>Your cart is empty. Add some products!</p>
@@ -47,16 +48,19 @@ const Cart = () => {
                 className="border-bottom border-top gap-5"
                 key={product.id}
               >
-                <Image
-                  className="col-2 p-0"
-                  src={product.image.url}
-                  alt={product.title}
-                />
+                <div className="col-4 p-0">
+                  <Link to={`/SingleProductPage/${product.id}`}>
+                    <Image src={product.image.url} alt={product.title} />
+                  </Link>
+                </div>
 
                 <div className="d-flex justify-content-between">
                   <CartContainer className="me-3 text-start">
                     <TitleContainer>
-                      <h3 className="my-1">{product.title}</h3>
+                    
+                      <h2 className="my-1">
+                        {product.title}
+                      </h2>
                     </TitleContainer>
                     <p className="mb-1">
                       $
@@ -65,14 +69,17 @@ const Cart = () => {
                         : product.price.toFixed(2)}
                     </p>
 
-                    <Counter productId={product.id} quantity={product.quantity} />
+                    <Counter
+                      productId={product.id}
+                      quantity={product.quantity}
+                    />
 
-                    <p>Total: ${totalPrice}</p>
+                    <p>Total: {totalPrice},-</p>
                   </CartContainer>
                 </div>
 
                 <DeleteBtn
-                  className="btn btn-transparent text-danger"
+                  className="btn btn-transparent text-danger p-0"
                   onClick={() => handleRemove(product.id)}
                 >
                   <i className="fa-solid fa-trash-can"></i>
@@ -81,7 +88,7 @@ const Cart = () => {
             );
           })}
           <TotalContainer className="mt-5 m-auto text-center">
-            <h2>Total: ${cartTotal.toFixed(2)}</h2>
+            <h2>Total: {cartTotal.toFixed(2)},-</h2>
             <Button className="me-4" onClick={handleClearCart}>
               Clear Cart
             </Button>
