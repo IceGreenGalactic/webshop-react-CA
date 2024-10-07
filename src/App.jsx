@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./components/Header/Header.jsx";
-import Footer from "./components/Footer/Footer.jsx";
+import Layout from "./components/Layout/Layout.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import SingleProductPage from "./pages/SingleProductPage/SingleProductPage.jsx";
 import Checkout from "./pages/Checkout/Checkout.jsx";
@@ -11,29 +10,75 @@ import "./App.css";
 import Cart from "./pages/Cart/Cart.jsx";
 import PageNotFound from "./pages/pageNotFound/PageNotFound.jsx";
 import ScrollToTop from "./utils/ScrollToTop.jsx";
-import Breadcrumbs from "./components/Breadcrumbs/Breadcrumbs.jsx";
 function App() {
   return (
     <Router>
-      <Header />
-      <Breadcrumbs />
       <main>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <HomePage />{" "}
+              </Layout>
+            }
+          />
           <Route
             path="/SingleProductPage/:productId"
-            element={<SingleProductPage />}
+            element={
+              <Layout>
+                <SingleProductPage />
+              </Layout>
+            }
           />
-          <Route path="/Cart" element={<Cart />} />
-          <Route path="/Checkout" element={<Checkout />} />
-          <Route path="/ContactForm" element={<ContactForm />} />
-          <Route path="/CheckoutSuccess" element={<CheckoutSuccess />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route
+            path="/Cart"
+            element={
+              <Layout>
+                {" "}
+                <Cart />
+              </Layout>
+            }
+          />
+          <Route
+            path="/Checkout"
+            element={
+              <Layout>
+                {" "}
+                <Checkout />
+              </Layout>
+            }
+          />
+          <Route
+            path="/ContactForm"
+            element={
+              <Layout>
+                {" "}
+                <ContactForm />
+              </Layout>
+            }
+          />
+          <Route
+            path="/CheckoutSuccess"
+            element={
+              <Layout>
+                {" "}
+                <CheckoutSuccess />
+              </Layout>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Layout>
+                {" "}
+                <PageNotFound />{" "}
+              </Layout>
+            }
+          />
         </Routes>
       </main>
-
-      <Footer />
     </Router>
   );
 }
