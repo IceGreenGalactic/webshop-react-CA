@@ -27,7 +27,13 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    navigate("/Checkout");
+
+    setTimeout(() => {
+      console.log("Payment processed successfully!");
+      dispatch(clearCart());
+      navigate("/CheckoutSuccess", { state: { purchasedItems: products } });
+  
+    }, 2000);
   };
 
   return (
