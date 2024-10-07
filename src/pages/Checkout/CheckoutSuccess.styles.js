@@ -13,3 +13,9 @@ export const Image = styled.img`
     width: 100px;
   }
 `;
+
+export const HomeButton = styled.button`
+      color: ${({ theme }) => theme.color.primary};
+
+    &:hover {
+      color: ${({ theme }) => theme.color.secondary};`
