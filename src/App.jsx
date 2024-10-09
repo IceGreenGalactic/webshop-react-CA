@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "./components/Layout/Layout.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import SingleProductPage from "./pages/SingleProductPage/SingleProductPage.jsx";
-import Checkout from "./pages/Checkout/Checkout.jsx";
 import CheckoutSuccess from "./pages/Checkout/CheckoutSuccess.jsx";
 import ContactForm from "./pages/Contact/Contact.jsx";
 import "./App.css";
@@ -41,15 +40,7 @@ function App() {
               </Layout>
             }
           />
-          <Route
-            path="/Checkout"
-            element={
-              <Layout>
-                {" "}
-                <Checkout />
-              </Layout>
-            }
-          />
+      
           <Route
             path="/ContactForm"
             element={
