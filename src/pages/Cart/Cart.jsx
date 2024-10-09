@@ -31,7 +31,7 @@ const Cart = () => {
     setTimeout(() => {
       console.log("Payment processed successfully!");
       dispatch(clearCart());
-      navigate("/CheckoutSuccess", { state: { purchasedItems: products } });
+      navigate("/checkout-success", { state: { purchasedItems: products } });
   
     }, 2000);
   };
@@ -55,7 +55,7 @@ const Cart = () => {
                 key={product.id}
               >
                 <div className="col-4 p-0">
-                  <Link to={`/SingleProductPage/${product.id}`}>
+                  <Link to={`/product/${product.id}`}>
                     <Image src={product.image.url} alt={product.title} />
                   </Link>
                 </div>

@@ -23,10 +23,10 @@ const Header = () => {
             <Link to="/" className="nav-link">Home</Link>
           </NavLink>
           <NavLink>
-            <Link to="/ContactForm" className="nav-link">Contact</Link>
+            <Link to="/contact" className="nav-link">Contact</Link>
           </NavLink>
           <NavLink>
-            <Link to="/Cart" className="nav-link d-flex align-items-baseline">
+            <Link to="/cart" className="nav-link d-flex align-items-baseline">
               <i className="fa-solid fa-cart-shopping me-2"></i>({totalQuantity})
               {itemAdded && <Notification> +1 item added</Notification>} 
             </Link>

@@ -24,7 +24,7 @@ function App() {
             }
           />
           <Route
-            path="/SingleProductPage/:productId"
+            path="/product/:id"
             element={
               <Layout>
                 <SingleProductPage />
@@ -32,7 +32,7 @@ function App() {
             }
           />
           <Route
-            path="/Cart"
+            path="/cart"
             element={
               <Layout>
                 {" "}
@@ -40,9 +40,8 @@ function App() {
               </Layout>
             }
           />
-      
           <Route
-            path="/ContactForm"
+            path="/contact"
             element={
               <Layout>
                 {" "}
@@ -51,7 +50,7 @@ function App() {
             }
           />
           <Route
-            path="/CheckoutSuccess"
+            path="/checkout-success"
             element={
               <Layout>
                 {" "}
