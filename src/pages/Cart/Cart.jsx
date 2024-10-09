@@ -49,7 +49,7 @@ const Cart = () => {
                 key={product.id}
               >
                 <div className="col-4 p-0">
-                  <Link to={`/SingleProductPage/${product.id}`}>
+                  <Link to={`/product/${product.id}`}>
                     <Image src={product.image.url} alt={product.title} />
                   </Link>
                 </div>

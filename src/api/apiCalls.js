@@ -17,9 +17,9 @@ export async function fetchAllProducts() {
   }
 }
 
-export const fetchSingleProduct = async (productId) => {
+export const fetchSingleProduct = async (id) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/${productId}`);
+      const response = await fetch(`${API_BASE_URL}/${id}`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

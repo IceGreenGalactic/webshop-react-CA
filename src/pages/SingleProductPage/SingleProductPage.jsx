@@ -22,7 +22,7 @@ import { useNotification } from "../../components/Header/NotificationContext";
 import { Spinner } from "react-bootstrap";
 
 const SingleProductPage = () => {
-  const { productId } = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -50,7 +50,7 @@ const SingleProductPage = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const response = await fetchSingleProduct(productId);
+        const response = await fetchSingleProduct(id);
 
         if (response && response.data) {
           setProduct(response.data);
@@ -65,7 +65,7 @@ const SingleProductPage = () => {
     };
 
     getProduct();
-  }, [productId]);
+  }, [id]);
 
   if (loading) {
     return <>

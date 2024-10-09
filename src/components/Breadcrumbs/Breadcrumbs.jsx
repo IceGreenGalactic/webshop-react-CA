@@ -16,10 +16,10 @@ function Breadcrumbs() {
 
   useEffect(() => {
     const getProductTitle = async () => {
-      if (pathnames[0] === "SingleProductPage" && pathnames[1]) {
+      if (pathnames[0] === "product" && pathnames[1]) {
         try {
-          const productId = pathnames[1];
-          const productData = await fetchSingleProduct(productId);
+          const id = pathnames[1];
+          const productData = await fetchSingleProduct(id);
           setProductTitle(productData.data.title);
         } catch (error) {
           console.error("Error fetching product title:", error);
@@ -31,7 +31,7 @@ function Breadcrumbs() {
   }, [pathnames]);
 
   
-  const productPath = `/SingleProductPage/${pathnames[1]}`;
+  const productPath = `/product/${pathnames[1]}`;
 
   return (
     <BreadcrumbWrapper className="col-10 m-auto" aria-label="breadcrumb">
@@ -44,9 +44,9 @@ function Breadcrumbs() {
 
         {pathnames.map((value, index) => {
           const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-          const isActive = location.pathname === to || (value === "SingleProductPage" && productTitle && location.pathname === productPath);
+          const isActive = location.pathname === to || (value === "product" && productTitle && location.pathname === productPath);
 
-          if (value === "SingleProductPage" && productTitle) {
+          if (value === "product" && productTitle) {
             return (
               <BreadcrumbItem key={to}>
                 <BreadcrumbLink to={productPath} className={isActive ? "active" : ""}>
@@ -56,7 +56,7 @@ function Breadcrumbs() {
             );
           }
 
-          if (index === 1 && pathnames[0] === "SingleProductPage") {
+          if (index === 1 && pathnames[0] === "product") {
             return null; 
           }
 

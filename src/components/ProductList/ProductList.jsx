@@ -76,7 +76,7 @@ const ProductList = () => {
             >
               <ProductCard
                 as={Link}
-                to={`/SingleProductPage/${product.id}`}
+                to={`/product/${product.id}`}
                 className="card text-center m-auto text-decoration-none col-11"
               >
                 <div>

@@ -53,7 +53,7 @@ const CheckoutForm = () => {
     setTimeout(() => {
       console.log("Payment processed successfully!");
       dispatch(clearCart());
-      navigate("/CheckoutSuccess", { state: { purchasedItems: products } });
+      navigate("/checkout-success", { state: { purchasedItems: products } });
       reset();
     }, 2000);
   };
