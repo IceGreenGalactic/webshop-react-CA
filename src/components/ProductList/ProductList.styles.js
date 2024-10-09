@@ -54,11 +54,12 @@ export const RegularPrice = styled.span`
 
 export const DiscountPercentage = styled.div`
   position: absolute;
-  top: 10px;
-  right: 10px; 
+  top: 0px;
+  right: 0px; 
   color: white;
   background: rgba(255, 0, 0, 0.8);
-  border-radius: 5px;
+  border-radius: 0px 5px 0px 5px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 5px 10px;
   font-weight: bold;
   z-index: 10; 
