@@ -50,7 +50,6 @@ const ContactForm = () => {
 
   return (
     <div className="col-10 col-lg-8 m-auto">
-
       <div className=" mt-4 col-sm-8 m-auto ">
         <h1>Contact us!</h1>
         <p>

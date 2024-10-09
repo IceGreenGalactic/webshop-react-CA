@@ -25,9 +25,7 @@ export const BreadcrumbItem = styled.li`
 export const BreadcrumbLink = styled(Link)`
   color: ${(props) => props.theme.color.primary};
   text-decoration: none;
-     opacity: 0.6;
-
-   
+  opacity: 0.6;
 
   &:hover {
     color: ${(props) => props.theme.color.secondary};
@@ -36,6 +34,6 @@ export const BreadcrumbLink = styled(Link)`
 
   &.active {
     color: ${(props) => props.theme.color.primary};
-       opacity: 1;
+    opacity: 1;
   }
 `;

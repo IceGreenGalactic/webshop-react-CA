@@ -9,7 +9,7 @@ export const NotificationProvider = ({ children }) => {
     setItemAdded(true);
     setTimeout(() => {
       setItemAdded(false);
-    }, 3000); 
+    }, 3000);
   };
 
   return (

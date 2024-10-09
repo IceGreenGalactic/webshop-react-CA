@@ -13,7 +13,7 @@ import {
 const Footer = () => {
   return (
     <StyledFooter className="mt-4">
-      <FooterSection >
+      <FooterSection>
         <div>
           <h5>Follow Us</h5>
           <SocialIcons>
@@ -31,10 +31,10 @@ const Footer = () => {
       </FooterSection>
 
       <FooterLinks className="d-flex">
-      <FooterLink to="/contact">Contact</FooterLink>
-      <FooterLink to="/page-not-found">Terms & Conditions</FooterLink>
-      <FooterLink to="/page-not-found">Privacy Policy</FooterLink>
-      <FooterLink to="/page-not-found">Return Policy</FooterLink>
+        <FooterLink to="/contact">Contact</FooterLink>
+        <FooterLink to="/page-not-found">Terms & Conditions</FooterLink>
+        <FooterLink to="/page-not-found">Privacy Policy</FooterLink>
+        <FooterLink to="/page-not-found">Return Policy</FooterLink>
       </FooterLinks>
 
       <Copyright>© 2024 ECCOH Store. All rights reserved.</Copyright>

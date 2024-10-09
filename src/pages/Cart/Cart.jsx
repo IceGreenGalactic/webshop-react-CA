@@ -27,12 +27,10 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-
     setTimeout(() => {
       console.log("Payment processed successfully!");
       dispatch(clearCart());
       navigate("/checkout-success", { state: { purchasedItems: products } });
-  
     }, 2000);
   };
 
@@ -63,10 +61,7 @@ const Cart = () => {
                 <div className="d-flex justify-content-between">
                   <CartContainer className="me-3 text-start">
                     <TitleContainer>
-                    
-                      <h2 className="my-1">
-                        {product.title}
-                      </h2>
+                      <h2 className="my-1">{product.title}</h2>
                     </TitleContainer>
                     <p className="mb-1">
                       $

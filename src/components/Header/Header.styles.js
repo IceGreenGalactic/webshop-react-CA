@@ -8,7 +8,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   box-sizing: border-box;
   margin: 0;
-    z-index: 100;
+  z-index: 100;
 `;
 
 export const Nav = styled.nav`
@@ -26,8 +26,7 @@ export const Logo = styled.img`
 export const NavLinks = styled.ul`
   display: flex;
   list-style: none;
-  font-family: 'Playwrite DE Grund', Arial, sans-serif;
-
+  font-family: "Playwrite DE Grund", Arial, sans-serif;
 `;
 
 export const NavLink = styled.li`
@@ -46,15 +45,15 @@ export const NavLink = styled.li`
 `;
 
 export const Notification = styled.span`
-  position: absolute; 
-  top: 100%; 
+  position: absolute;
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
   background-color: ${({ theme }) => theme.color.secondary};
   color: white;
   border-radius: 5px;
   padding: 2px 5px;
-  font-size: 12px; 
-  animation: fadeInOut 3s; 
+  font-size: 12px;
+  animation: fadeInOut 3s;
   white-space: nowrap;
 `;

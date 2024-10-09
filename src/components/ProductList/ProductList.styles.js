@@ -48,21 +48,21 @@ export const Price = styled.span`
 
 export const RegularPrice = styled.span`
   margin-right: 10px;
-    text-decoration: line-through 2px red;
+  text-decoration: line-through 2px red;
   color: black;
 `;
 
 export const DiscountPercentage = styled.div`
   position: absolute;
   top: 0px;
-  right: 0px; 
+  right: 0px;
   color: white;
   background: rgba(255, 0, 0, 0.8);
   border-radius: 0px 5px 0px 5px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   padding: 5px 10px;
   font-weight: bold;
-  z-index: 10; 
+  z-index: 10;
 `;
 
 export const DiscountedPrice = styled.span`

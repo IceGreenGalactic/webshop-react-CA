@@ -18,4 +18,4 @@ font-family: 'Playwrite DE Grund', Arial, sans-serif;
 }
 `;
 
-export default GlobalStyle
+export default GlobalStyle;

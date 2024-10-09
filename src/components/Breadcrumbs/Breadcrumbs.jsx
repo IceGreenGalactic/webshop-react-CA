@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { fetchSingleProduct } from "../../api/apiCalls";
-import { 
-  BreadcrumbItem, 
-  BreadcrumbLink, 
-  BreadcrumbWrapper, 
-  BreadcrumbList 
+import {
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbWrapper,
+  BreadcrumbList,
 } from "./Breadcrumbs.styles";
 
 function Breadcrumbs() {
@@ -30,34 +30,43 @@ function Breadcrumbs() {
     getProductTitle();
   }, [pathnames]);
 
-  
   const productPath = `/product/${pathnames[1]}`;
 
   return (
     <BreadcrumbWrapper className="col-10 m-auto" aria-label="breadcrumb">
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink to="/" className={location.pathname === "/" ? "active" : ""}>
+          <BreadcrumbLink
+            to="/"
+            className={location.pathname === "/" ? "active" : ""}
+          >
             Home
           </BreadcrumbLink>
         </BreadcrumbItem>
 
         {pathnames.map((value, index) => {
           const to = `/${pathnames.slice(0, index + 1).join("/")}`;
-          const isActive = location.pathname === to || (value === "product" && productTitle && location.pathname === productPath);
+          const isActive =
+            location.pathname === to ||
+            (value === "product" &&
+              productTitle &&
+              location.pathname === productPath);
 
           if (value === "product" && productTitle) {
             return (
               <BreadcrumbItem key={to}>
-                <BreadcrumbLink to={productPath} className={isActive ? "active" : ""}>
-                  {productTitle} 
+                <BreadcrumbLink
+                  to={productPath}
+                  className={isActive ? "active" : ""}
+                >
+                  {productTitle}
                 </BreadcrumbLink>
               </BreadcrumbItem>
             );
           }
 
           if (index === 1 && pathnames[0] === "product") {
-            return null; 
+            return null;
           }
 
           return (

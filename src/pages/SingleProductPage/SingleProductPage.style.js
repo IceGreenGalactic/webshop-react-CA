@@ -12,9 +12,8 @@ export const ProductCard = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-position: relative;
-
-`
+  position: relative;
+`;
 export const ProductImg = styled.img`
   height: auto;
   width: 100%;
@@ -22,16 +21,16 @@ export const ProductImg = styled.img`
 `;
 
 export const DiscountPercentage = styled.div`
-    position: absolute;
-  top: 0px; 
-  right: 12px; 
+  position: absolute;
+  top: 0px;
+  right: 12px;
   color: white;
-  background: rgba(255, 0, 0, 0.8); 
+  background: rgba(255, 0, 0, 0.8);
   border-radius: 0px 0px 0px 5px;
   padding: 5px 10px;
   font-weight: bold;
   z-index: 10;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 `;
 
 export const Title = styled.h1`
@@ -58,8 +57,6 @@ export const RegularPrice = styled.span`
   color: black;
 `;
 
-
-
 export const DiscountedPrice = styled.span`
   font-size: 1.5rem;
   color: black;
@@ -74,7 +71,6 @@ export const Price = styled.span`
   margin-top: 10px;
 `;
 
-export const ReviewCard = styled.div `
-background: ${(props) => props.theme.color.cardBackground};
-`
-
+export const ReviewCard = styled.div`
+  background: ${(props) => props.theme.color.cardBackground};
+`;

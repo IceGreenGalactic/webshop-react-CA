@@ -14,23 +14,23 @@ export const Quantity = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 8rem; 
-  height: 8rem; 
+  width: 8rem;
+  height: 8rem;
   object-fit: cover;
 `;
 
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
-  h2{
-  font-size: 1.3rem;
+  h2 {
+    font-size: 1.3rem;
     font-weight: 900;
   }
 `;
 
 export const DeleteBtn = styled.button`
   position: absolute;
-  top:0px;
+  top: 0px;
   right: 0px;
 `;
 export const TotalContainer = styled.div`

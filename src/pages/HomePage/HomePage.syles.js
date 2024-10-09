@@ -18,5 +18,3 @@ export const HeroSubtitle = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 1rem;
 `;
-
-

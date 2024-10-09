@@ -18,4 +18,4 @@ export const HomeButton = styled.button`
       color: ${({ theme }) => theme.color.primary};
 
     &:hover {
-      color: ${({ theme }) => theme.color.secondary};`
+      color: ${({ theme }) => theme.color.secondary};`;

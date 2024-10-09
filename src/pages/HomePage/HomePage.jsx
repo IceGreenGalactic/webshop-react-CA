@@ -7,7 +7,6 @@ import {
   HeroTextContainer,
 } from "./HomePage.syles.js";
 
-
 const HomePage = () => {
   return (
     <div>
