@@ -4,14 +4,14 @@ import {
   HeroContainer,
   HeroSubtitle,
   HeroTitle,
-  HeroTextContainer,
+  
 } from "./HomePage.syles.js";
 
 const HomePage = () => {
   return (
     <div>
-      <HeroContainer className="row mb-5">
-        <HeroTextContainer className=" d-flex flex-column text-center p-5">
+      <HeroContainer className="mb-5 col-12 m-auto">
+        <div className="  text-center p-5">
           <HeroTitle>Welcome to Our Boutique!</HeroTitle>
           <HeroSubtitle>
             Discover unique styles that express your individuality.
@@ -20,7 +20,7 @@ const HomePage = () => {
             Embrace elegance and sophistication with every piece. Our curated
             collections are designed to inspire and empower.
           </p>
-        </HeroTextContainer>
+        </div>
       </HeroContainer>
       <ProductList />
     </div>
