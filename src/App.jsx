@@ -9,8 +9,11 @@ import "./App.css";
 import Cart from "./pages/Cart/Cart.jsx";
 import PageNotFound from "./pages/pageNotFound/PageNotFound.jsx";
 import ScrollToTop from "./utils/ScrollToTop.jsx";
+import { HelmetProvider } from "react-helmet-async";
+
 function App() {
   return (
+    <HelmetProvider>
     <Router>
       <main>
         <ScrollToTop />
@@ -70,6 +73,7 @@ function App() {
         </Routes>
       </main>
     </Router>
+    </HelmetProvider>
   );
 }
 
