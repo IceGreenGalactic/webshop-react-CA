@@ -1,0 +1,7 @@
+main {
+  min-height: 100vh;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
