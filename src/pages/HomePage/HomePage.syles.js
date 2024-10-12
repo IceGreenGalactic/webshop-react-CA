@@ -2,10 +2,7 @@ import styled from "styled-components";
 
 export const HeroContainer = styled.div`
   background: ${(props) => props.theme.color.cardBackground};
-
 `;
-
-
 
 export const HeroTitle = styled.h1`
   font-size: 2rem;

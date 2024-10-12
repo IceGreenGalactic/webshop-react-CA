@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Image, HomeButton } from "./CheckoutSuccess.styles";
+import { Helmet } from "react-helmet-async";
 
 const CheckoutSuccess = () => {
   const location = useLocation();
@@ -15,6 +16,25 @@ const CheckoutSuccess = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Thank You for Your Purchase | ECCOH Webshop</title>
+        <meta
+          name="description"
+          content="Thank you for shopping at ECCOH Webshop! Your order has been successfully placed. Here’s your receipt and order details."
+        />
+        <meta
+          name="keywords"
+          content="ECCOH, order success, checkout, webshop, purchase receipt"
+        />
+        <meta
+          property="og:title"
+          content="Thank You for Your Purchase | ECCOH Webshop"
+        />
+        <meta
+          property="og:description"
+          content="Your order has been successfully placed. View your receipt here."
+        />
+      </Helmet>
       <h1 className="text-center my-4 ">Payment Successful</h1>
       <div className="col-8 col-xl-6 m-auto mt-5 card p-4">
         <div className="col-10 col-sm-6 m-auto">

@@ -14,12 +14,13 @@ import {
   ReviewCard,
   ImageContainer,
 } from "./SingleProductPage.style";
-import Star from "../../components/star";
+import Star from "../../components/stars/star";
 import { Button } from "../../App.styles";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../Cart/cartSlice";
 import { useNotification } from "../../components/Header/NotificationContext";
 import { Spinner } from "react-bootstrap";
+import { Helmet } from "react-helmet-async";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -92,6 +93,15 @@ const SingleProductPage = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Product Name | ECCOH Webshop</title>
+        <meta
+          name="description"
+          content="Check out this amazing product at ECCOH Webshop!"
+        />
+        <meta name="keywords" content="ECCOH, ecommerce, product, shopping" />
+      </Helmet>
+
       <div className="m-auto col-12 col-sm-10">
         <ProductCard className="m-auto text-center">
           <div className="row">
