@@ -1,8 +1,13 @@
 import React from "react";
-import { StarIcon } from "./star.styles";
 
 const Star = ({ filled }) => {
-  return <StarIcon filled={filled}>★</StarIcon>;
+  return (
+    <span
+      style={{ color: filled ? "#FF8C42" : "lightgray", fontSize: "1.5rem" }}
+    >
+      ★
+    </span>
+  );
 };
 
 export default Star;
