@@ -101,7 +101,7 @@ const SingleProductPage = () => {
         />
         <meta name="keywords" content="ECCOH, ecommerce, product, shopping" />
       </Helmet>
-      
+
       <div className="m-auto col-12 col-sm-10">
         <ProductCard className="m-auto text-center">
           <div className="row">

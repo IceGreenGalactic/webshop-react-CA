@@ -24,7 +24,6 @@ const HomePage = () => {
           property="og:description"
           content="Discover a wide range of perfumes, sneakers, headphones, and more at ECCOH Webshop."
         />
-
       </Helmet>
 
       <HeroContainer className="mb-5 col-12 m-auto">

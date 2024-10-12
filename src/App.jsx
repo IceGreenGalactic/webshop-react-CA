@@ -14,65 +14,65 @@ import { HelmetProvider } from "react-helmet-async";
 function App() {
   return (
     <HelmetProvider>
-    <Router>
-      <main>
-        <ScrollToTop />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout>
-                <HomePage />{" "}
-              </Layout>
-            }
-          />
-          <Route
-            path="/product/:id"
-            element={
-              <Layout>
-                <SingleProductPage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <Layout>
-                {" "}
-                <Cart />
-              </Layout>
-            }
-          />
-          <Route
-            path="/contact"
-            element={
-              <Layout>
-                {" "}
-                <ContactForm />
-              </Layout>
-            }
-          />
-          <Route
-            path="/checkout-success"
-            element={
-              <Layout>
-                {" "}
-                <CheckoutSuccess />
-              </Layout>
-            }
-          />
-          <Route
-            path="*"
-            element={
-              <Layout>
-                {" "}
-                <PageNotFound />{" "}
-              </Layout>
-            }
-          />
-        </Routes>
-      </main>
-    </Router>
+      <Router>
+        <main>
+          <ScrollToTop />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Layout>
+                  <HomePage />{" "}
+                </Layout>
+              }
+            />
+            <Route
+              path="/product/:id"
+              element={
+                <Layout>
+                  <SingleProductPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <Layout>
+                  {" "}
+                  <Cart />
+                </Layout>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <Layout>
+                  {" "}
+                  <ContactForm />
+                </Layout>
+              }
+            />
+            <Route
+              path="/checkout-success"
+              element={
+                <Layout>
+                  {" "}
+                  <CheckoutSuccess />
+                </Layout>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <Layout>
+                  {" "}
+                  <PageNotFound />{" "}
+                </Layout>
+              }
+            />
+          </Routes>
+        </main>
+      </Router>
     </HelmetProvider>
   );
 }

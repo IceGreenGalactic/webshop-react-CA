@@ -66,7 +66,6 @@ const ContactForm = () => {
           property="og:description"
           content="Get in touch with ECCOH Webshop for any questions or assistance."
         />
-    
       </Helmet>
       <div className="col-10 col-lg-8 m-auto">
         <div className=" mt-4 col-sm-8 m-auto ">
