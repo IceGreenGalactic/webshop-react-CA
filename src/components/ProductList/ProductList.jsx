@@ -14,7 +14,7 @@ import {
 } from "./ProductList.styles";
 import { fetchAllProducts } from "../../api/apiCalls";
 import { Link } from "react-router-dom";
-import Star from "../star";
+import Star from "../stars/star";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);

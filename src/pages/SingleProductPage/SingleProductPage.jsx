@@ -14,7 +14,7 @@ import {
   ReviewCard,
   ImageContainer,
 } from "./SingleProductPage.style";
-import Star from "../../components/star";
+import Star from "../../components/stars/star";
 import { Button } from "../../App.styles";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../Cart/cartSlice";
