@@ -1,4 +1,5 @@
 # ECCOH Webshop  
+![ECCOH Webshop](/src/assets/images/screenshotEccoh.png)
 
 ## JavaScript Frameworks II - E-Commerce Website
 
